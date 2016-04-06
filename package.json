@@ -1,16 +1,16 @@
 {
   "name": "template-mailer-aws-lambda-client",
-  "version": "0.0.1",
   "description": "A client library for interacting with template-mailer-aws-lambda",
   "main": "index.js",
   "scripts": {
     "test": "./node_modules/mocha/bin/mocha --reporter=spec test/\\*.js",
     "test:coverage": "./node_modules/istanbul/lib/cli.js cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec test/\\*.js && cat ./coverage/lcov.info | ./node_modules/.bin/codacy-coverage && rm -rf ./coverage",
-    "lint": "./node_modules/.bin/standard *.js"
+    "lint": "./node_modules/.bin/standard *.js",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ResourcefulHumans/template-mailer-aws-lambda-client.git"
+    "url": "https://github.com/ResourcefulHumans/template-mailer-aws-lambda-client.git"
   },
   "author": "Resourceful Humans <info@resourceful-humans.com>",
   "license": "MIT",
@@ -31,7 +31,8 @@
     "mocha": "^2.3.4",
     "mocha-lcov-reporter": "^1.0.0",
     "standard": "^6.0.8",
-    "validate-commit-msg": "^2.5.0"
+    "validate-commit-msg": "^2.5.0",
+    "semantic-release": "^4.3.5"
   },
   "config": {
     "ghooks": {
