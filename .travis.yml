@@ -1,0 +1,20 @@
+branches:
+  except:
+    - /^v[0-9]/
+
+language: node_js
+
+sudo: false
+
+node_js:
+  - "stable"
+
+install:
+  - npm install --no-shrinkwrap
+
+script:
+  - npm run lint
+  - npm run test:coverage
+
+after_success:
+  - npm run semantic-release
