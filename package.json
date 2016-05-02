@@ -30,7 +30,7 @@
     "istanbul": "^0.4.2",
     "mocha": "^2.3.4",
     "mocha-lcov-reporter": "^1.0.0",
-    "standard": "^6.0.8",
+    "standard": "^7.0.0",
     "validate-commit-msg": "^2.5.0",
     "semantic-release": "^4.3.5"
   },
