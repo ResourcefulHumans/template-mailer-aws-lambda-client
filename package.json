@@ -3,9 +3,9 @@
   "description": "A client library for interacting with template-mailer-aws-lambda",
   "main": "index.js",
   "scripts": {
-    "test": "./node_modules/mocha/bin/mocha --reporter=spec test/\\*.js",
-    "test:coverage": "./node_modules/istanbul/lib/cli.js cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec test/\\*.js && cat ./coverage/lcov.info | ./node_modules/.bin/codacy-coverage && rm -rf ./coverage",
-    "lint": "./node_modules/.bin/standard *.js",
+    "test": "mocha --reporter=spec test/\\*.js",
+    "test:coverage": "./node_modules/istanbul/lib/cli.js cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec test/\\*.js && cat ./coverage/lcov.info | codacy-coverage && rm -rf ./coverage",
+    "lint": "standard *.js",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
   "repository": {
