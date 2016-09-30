@@ -5,7 +5,7 @@
   "scripts": {
     "test": "mocha --reporter=spec test/\\*.js",
     "test:coverage": "./node_modules/istanbul/lib/cli.js cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec test/\\*.js && cat ./coverage/lcov.info | codacy-coverage && rm -rf ./coverage",
-    "lint": "standard *.js",
+    "lint": "standard",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
   "repository": {
@@ -20,7 +20,8 @@
   "homepage": "https://github.com/ResourcefulHumans/template-mailer-aws-lambda-client#readme",
   "dependencies": {
     "lodash": "^4.0.0",
-    "request-promise": "^4.0.0"
+    "request-promise": "^4.0.0",
+    "template-mailer-aws-lambda": "^2.0.0"
   },
   "devDependencies": {
     "chai": "^3.4.1",

@@ -15,38 +15,38 @@ TemplateMailerService.prototype.template = function (id, subject, html, text) {
     uri: self.api + '/templates/' + id,
     headers: {
       'x-api-key': self.apiKey,
-      'Content-Type': 'application/vnd.resourceful-humans.template-mailer-aws-lambda.v1+json; charset=utf-8'
+      'Content-Type': 'application/vnd.resourceful-humans.template-mailer-aws-lambda.v2+json; charset=utf-8'
     },
     body: {subject, html, text},
     json: true
   })
 }
 
-TemplateMailerService.prototype.config = function (id, dsn, email, name) {
+TemplateMailerService.prototype.config = function (id, email, name) {
   let self = this
   return request({
     method: 'PUT',
-    uri: self.api + '/smtp_credentials/' + id,
+    uri: self.api + '/transport/' + id,
     headers: {
       'x-api-key': self.apiKey,
-      'Content-Type': 'application/vnd.resourceful-humans.template-mailer-aws-lambda.v1+json; charset=utf-8'
+      'Content-Type': 'application/vnd.resourceful-humans.template-mailer-aws-lambda.v2+json; charset=utf-8'
     },
-    body: {dsn, email, name},
+    body: {email, name},
     json: true
   })
 }
 
-TemplateMailerService.prototype.send = function (config, template, to, name, data) {
+TemplateMailerService.prototype.send = function (transport, template, to, name, data) {
   let self = this
   data = data || {}
   data.to = to
   data.name = name
   return request({
     method: 'POST',
-    uri: self.api + '/send/' + config + '/' + template,
+    uri: self.api + '/send/' + transport + '/' + template,
     headers: {
       'x-api-key': self.apiKey,
-      'Content-Type': 'application/vnd.resourceful-humans.template-mailer-aws-lambda.v1+json; charset=utf-8'
+      'Content-Type': 'application/vnd.resourceful-humans.template-mailer-aws-lambda.v2+json; charset=utf-8'
     },
     body: data,
     json: true
