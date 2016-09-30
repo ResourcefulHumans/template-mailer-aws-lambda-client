@@ -19,7 +19,7 @@ describe('TemplateMailerService', function () {
       server = http.createServer(function (req, res) {
         expect(req.method).to.equal('PUT')
         expect(req.url).to.equal('/api/templates/templateid')
-        expect(req.headers['content-type']).to.equal('application/vnd.resourceful-humans.template-mailer-aws-lambda.v2+json charset=utf-8')
+        expect(req.headers['content-type']).to.equal('application/vnd.resourceful-humans.template-mailer-aws-lambda.v2+json; charset=utf-8')
         req.on('data', function (data) {
           var body = JSON.parse(data)
           expect(body.subject).to.equal('subject')
@@ -48,7 +48,7 @@ describe('TemplateMailerService', function () {
       server = http.createServer(function (req, res) {
         expect(req.method).to.equal('PUT')
         expect(req.url).to.equal('/api/transport/transportid')
-        expect(req.headers['content-type']).to.equal('application/vnd.resourceful-humans.template-mailer-aws-lambda.v2+json charset=utf-8')
+        expect(req.headers['content-type']).to.equal('application/vnd.resourceful-humans.template-mailer-aws-lambda.v2+json; charset=utf-8')
         req.on('data', function (data) {
           var body = JSON.parse(data)
           expect(body.email).to.equal('john.doe@example.com')
@@ -77,7 +77,7 @@ describe('TemplateMailerService', function () {
       server = http.createServer(function (req, res) {
         expect(req.method).to.equal('POST')
         expect(req.url).to.equal('/api/send/transportid/templateid')
-        expect(req.headers['content-type']).to.equal('application/vnd.resourceful-humans.template-mailer-aws-lambda.v2+json charset=utf-8')
+        expect(req.headers['content-type']).to.equal('application/vnd.resourceful-humans.template-mailer-aws-lambda.v2+json; charset=utf-8')
         req.on('data', function (data) {
           var body = JSON.parse(data)
           expect(body.to).to.equal('john.doe@example.com')
