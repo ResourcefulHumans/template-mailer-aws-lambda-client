@@ -6,7 +6,9 @@
     "test": "mocha --reporter=spec test/\\*.js",
     "test:coverage": "./node_modules/istanbul/lib/cli.js cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec test/\\*.js && cat ./coverage/lcov.info | codacy-coverage && rm -rf ./coverage",
     "lint": "standard",
-    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post",
+    "precommit": "npm run lint",
+    "commitmsg": "validate-commit-msg"
   },
   "repository": {
     "type": "git",
@@ -27,18 +29,12 @@
     "chai": "^3.4.1",
     "codacy-coverage": "^2.0.0",
     "eslint": "^3.0.0",
-    "ghooks": "^1.2.0",
+    "husky": "<2.0.0",
     "istanbul": "^0.4.2",
     "mocha": "^3.0.0",
     "mocha-lcov-reporter": "^1.0.0",
     "standard": "^8.0.0",
     "validate-commit-msg": "^2.5.0",
     "semantic-release": "^6.3.2"
-  },
-  "config": {
-    "ghooks": {
-      "pre-commit": "npm run lint",
-      "commit-msg": "validate-commit-msg"
-    }
   }
 }
