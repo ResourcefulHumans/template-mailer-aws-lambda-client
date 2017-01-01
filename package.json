@@ -4,7 +4,7 @@
   "main": "index.js",
   "scripts": {
     "test": "mocha --reporter=spec test/\\*.js",
-    "test:coverage": "./node_modules/istanbul/lib/cli.js cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec test/\\*.js && cat ./coverage/lcov.info | codacy-coverage && rm -rf ./coverage",
+    "test:coverage": "./node_modules/istanbul/lib/cli.js cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec test/\\*.js && codeclimate-test-reporter < ./coverage/lcov.info && rm -rf ./coverage",
     "lint": "standard",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post",
     "precommit": "npm run lint",
@@ -27,7 +27,7 @@
   },
   "devDependencies": {
     "chai": "^3.4.1",
-    "codacy-coverage": "^2.0.0",
+    "codeclimate-test-reporter": "^0.4.0",
     "eslint": "^3.0.0",
     "husky": "<2.0.0",
     "istanbul": "^0.4.2",
