@@ -36,11 +36,12 @@ TemplateMailerService.prototype.config = function (id, email, name) {
   })
 }
 
-TemplateMailerService.prototype.send = function (transport, template, to, name, data) {
+TemplateMailerService.prototype.send = function (transport, template, to, name, data, replyTo = null) {
   let self = this
   data = data || {}
   data.to = to
   data.name = name
+  data.replyTo = replyTo
   return request({
     method: 'POST',
     uri: self.api + '/send/' + transport + '/' + template,
